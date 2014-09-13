@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '4.1.5'
+gem 'rails', '4.1.6'
 gem 'pg'
 gem 'thin'
 gem 'sass-rails', '~> 4.0.3'
@@ -43,7 +43,7 @@ group :development, :test do
   gem 'pry'
   gem 'rails-erd'
   gem 'railroady'
-  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-rails', '~> 3.1.0'
   gem 'ffaker'
   gem 'factory_girl_rails'
 end

@@ -1,0 +1,23 @@
+.container
+  .row
+    %ul.posts.list-group
+      - @posts.each do |post|
+        %li.list-group-item{class: "post-#{post.id}"}
+          -if user_signed_in?
+            =render "shared/posts_actions", post: post
+          .post-actions
+          %h2.list-group-item-heading= post.title
+          %p.list-group-item-text= post.content.html_safe
+          -if user_signed_in?
+            %hr
+            =form_tag(post_comments_path(post), remote: true) do
+              = text_area_tag 'comment'
+              = submit_tag 'Post a comment'
+            %hr
+            %ul.comments
+              - if post.comment_threads.any?
+                - post.comment_threads.each do |comment|
+                  %li.comment-items
+                    %h4= comment.title
+                    %p= comment.body
+            = link_to 'New Post', new_post_path

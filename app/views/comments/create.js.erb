@@ -1,0 +1,13 @@
+console.log('COMMENT');
+
+var commentTitle = "<%= @comment.title %>";
+
+var commentBody = "<%= @comment.body %>";
+var postClass = ".post-<%= @comment.commentable_id %>"
+
+var comments = $(postClass+' ul.comments');
+var comment = $('<li class="comment-items"></li>');
+comment.append('<h4>'+commentTitle+'<h4>')
+comment.append('<p>'+commentBody+'<p>')
+
+comment.appendTo(comments);
